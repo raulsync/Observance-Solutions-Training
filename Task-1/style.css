@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.container > .header {
+  width: 60%;
+  height: 100vh;
+}
+
+.container > .hero-img {
+  background-color: #d0f4fd;
+  width: 40%;
+  height: 100vh;
+}
+
+.navbar {
+  margin-bottom: 40px;
+  margin: 20px 0px 40px 0px;
+}
+
+.navbar > ul {
+  display: flex;
+  /* gap: 20px; */
+  align-items: center;
+  justify-content: space-around;
+}
+
+#logo {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+ul > li {
+  list-style: none;
+}
+
+ul > li > a {
+  text-decoration: none;
+  color: #3e3e3e;
+}
+
+.article {
+  height: auto;
+  width: auto;
+  padding: 0px 5px;
+}
+
+.article > h1 {
+  margin: 100px 0px 25px 25px;
+  font-size: 65px;
+  width: 100%;
+  max-width: 750px;
+  font-weight: 500;
+}
+
+.article > p {
+  margin: 10px 0px 25px 25px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 750px;
+  font-weight: 400;
+}
+
+.article > button {
+  margin: 10px 0px 25px 25px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 20px 0px 40px 0px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.appointment_btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.doctor-img > img {
+  max-width: 100%;
+  height: 85vh;
+  border-radius: 10px;
+}
+
+.section2 {
+  background-color: #d0f4fd;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.section-heading > h2 {
+  margin: 20px 0px 5px 0px;
+}
+
+.section-heading > p {
+  margin: 0px 0px 5px 0px;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section > h2 {
+  margin: 0px 0px 10px 0px;
+}
+
+/* .image-section > p {
+  margin: 0px 0px 0px 0px;
+} */
+
+.image-section > img {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 25px 0px;
+  width: 100%;
+  max-width: 900px;
+  cursor: pointer;
+}
+
+/* Carousel section */
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-section {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out;
+  display: none;
+}
+
+.carousel-section.active {
+  display: flex;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description > h2 {
+  font-size: 56px;
+  max-width: 600px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.description-image > img {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.description-image2 > img {
+  width: 520px;
+  object-fit: cover;
+}
+
+.description-image3 > img {
+  width: 580px;
+  object-fit: cover;
+}
+
+.carousel-button {
+  background-color: rgba(39, 107, 243, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/* * Sectiion :- 4 */
+
+.practise-container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  flex-direction: row;
+}
+
+.heading-main {
+  width: 400px;
+  margin: 0px 20px;
+  padding: 5px;
+}
+
+.heading {
+  padding: 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.heading > h1 {
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.heading > p {
+  font-size: 18px;
+  line-height: 27px;
+  max-width: 385px;
+}
+
+.practise-wrapper {
+  display: grid;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-template-columns: repeat(2, 1fr);
+  flex: 1;
+  gap: 48px;
+}
+
+.practise-content {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+}
+
+.practise-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+/*  * Section 5 Form Group */
+
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  padding: 80px 80px;
+  gap: 80px;
+}
+
+.form-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.form-heading > h2 {
+  font-size: 50px;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-heading > p {
+  text-align: center;
+  max-width: 700px;
+  font-size: 18px;
+  /* line-height: 27px; */
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
+
+.form-control > .button-types {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.button-types > button {
+  background: none;
+  border-radius: 50px;
+  color: black;
+  cursor: pointer;
+  padding: 16px 24px;
+  border-width: 1px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 600px;
+  flex-direction: column;
+}
+
+.input-group > input {
+  width: 100%;
+  color: #000;
+  cursor: auto;
+  outline: none;
+  border-width: 0;
+  border-color: #000;
+  /* border-radius: 5px; */
+  padding: 8px 16px;
+  border-bottom-width: 1px;
+}
+
+.form-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-button > p {
+  text-align: left;
+  max-width: 700px;
+  font-size: 10px;
+}
+
+.formbackbtn {
+  background-color: #007bff;
+  border-radius: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 5px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.carousel2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 80px;
+  width: 100%;
+  gap: 80px;
+  background-color: #d0f4fd;
+}
+
+.carousel-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel-heading > h2 {
+  max-width: 600px;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.carousel-heading > p {
+  font-size: 16px;
+  text-align: center;
+  max-width: 700px;
+}
+
+.image-carousel {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  /* max-width: 1440px; */
+  gap: 64px;
+  position: relative;
+  /* overflow: hidden; */
+}
+.card {
+  width: 100%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 5px;
+}
+.image-container {
+  /* min-width: 100%; */
+  width: 850px;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  overflow: hidden;
+}
+.card > img {
+  width: 850px;
+  /* overflow: hidden; */
+  object-fit: cover;
+  height: auto;
+  max-width: 270px;
+}
+
+.prev-carousel-btn,
+.next-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  height: 40px;
+  width: 80px;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.prev-carousel-btn {
+  left: -80px;
+}
+.next-carousel-btn {
+  right: 10px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 120px 80px;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #000000;
+}
+
+.footer-right {
+}
