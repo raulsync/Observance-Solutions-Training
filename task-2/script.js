@@ -21,7 +21,7 @@ inputField.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     const todoQuery = inputField.value.trim();
     if (todoQuery !== '') {
-      addTodo(todoQuery);
+      -addTodo(todoQuery);
       inputField.value = '';
     }
   }
