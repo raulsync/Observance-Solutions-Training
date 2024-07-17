@@ -13,14 +13,14 @@ body {
 
 .container {
   width: 80%;
-  height: 70vh;
+  /* height: 70vh; */
   background-color: #f4e9e9;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   overflow-y: auto;
 }
 
-.container h1 {
+.container_header {
   text-align: center;
   background-color: #f7a3a3;
 }
@@ -54,11 +54,18 @@ body {
   border-radius: 10px;
   color: #ffffff;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .todo-list-item {
-  list-style: none;
-  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* list-style: none; */
+  padding: 1rem;
+  /* background-color: #b6a1a1; */
 }
 
 .todo-item {
@@ -68,8 +75,11 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+
+  /* border: 1px solid #9d8e8e; */
+  border-radius: 0.5rem;
+  width: 69%;
+  /* width: 80%; */
 }
 
 .todo-item.completed span {
@@ -83,4 +93,29 @@ body {
   border: none;
   background: none;
   font-size: 1rem;
+}
+
+.edit {
+  width: 100%;
+  /* padding: 0; */
+  padding: 0.25rem;
+  /* margin-top: 0.5rem; */
+  font-size: 1rem;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  /* resize: none; */
+}
+
+.completedTask {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* list-style: none; */
+  padding: 1rem;
+  background-color: #eedfdf;
 }
