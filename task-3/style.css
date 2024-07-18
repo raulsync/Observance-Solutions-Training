@@ -14,12 +14,54 @@ body {
 
 .container {
   width: 50%;
-  background-color: #dc7171;
+  background-color: #f5e4e4;
   height: 50vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   border-radius: 15px;
+}
+
+.stopwatch {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.tens {
+  font-size: 2rem;
+}
+
+.min {
+  font-size: 2rem;
+}
+
+.second {
+  font-size: 2rem;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.button > button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #6184de;
+  cursor: pointer;
 }
