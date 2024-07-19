@@ -5,6 +5,7 @@ const inputField = document.querySelector('.input-field');
 const addBtn = document.querySelector('.todo-add-btn');
 
 const todoList = document.querySelector('.todo-list-item');
+const completedTask = document.querySelector('.completedTask');
 
 addBtn.addEventListener('click', () => {
   console.log(inputField.value);
@@ -32,10 +33,14 @@ function addTodo(query) {
   const todoItem = createTodoItem();
   const checkBox = createCheckBox(todoItem);
   const todoQuery = createTodoQuery(query);
-  const actions = createActions(todoItem, todoQuery);
+  const actions = createActions(todoItem, todoQuery, completedTask);
 
-  todoItem.appendChild(checkBox);
-  todoItem.appendChild(todoQuery);
+  const queryContainer = document.createElement('div');
+  queryContainer.className = 'todo-query-container';
+  queryContainer.appendChild(checkBox);
+  queryContainer.appendChild(todoQuery);
+  todoItem.appendChild(queryContainer);
+  // todoItem.appendChild(todoQuery);
   todoItem.appendChild(actions);
   todoList.appendChild(todoItem);
 }
@@ -55,8 +60,6 @@ function createCheckBox(todoItem) {
   checkBox.type = 'checkBox';
 
   //adding eventlistener for toggle checkbox
-
-  const completedTask = document.querySelector('.completedTask');
 
   checkBox.addEventListener('change', function () {
     // todoItem.classList.toggle('completed', checkBox.checked);
@@ -84,7 +87,7 @@ function createTodoQuery(query) {
 
 //create action button for delete update check uncheck
 
-function createActions(todoItem, todoQuery) {
+function createActions(todoItem, todoQuery, completedTask) {
   const actions = document.createElement('div');
   actions.className = 'actions';
 
@@ -93,13 +96,25 @@ function createActions(todoItem, todoQuery) {
   editButton.textContent = '✏️';
 
   editButton.addEventListener('click', () => updateTodo(todoItem, todoQuery));
+
+  //disable edit button in completed section
+  if (todoItem.classList.contains('completed')) {
+    editButton.disabled = true;
+  }
+
   actions.appendChild(editButton);
 
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'delete';
-  deleteButton.addEventListener('click', () => deleteTodo(todoItem));
-  actions.appendChild(deleteButton);
+  deleteButton.addEventListener('click', () =>
+    deleteTodo(todoItem, completedTask),
+  );
 
+  actions.appendChild(deleteButton);
+  //disable delete button on completed task
+  // if (todoItem.classList.contains('completed')) {
+  //   deleteButton.disabled = true;
+  // }
   return actions;
 }
 
@@ -133,5 +148,9 @@ function updateTodo(todoItem, todoQuery) {
 }
 
 function deleteTodo(todoItem) {
-  todoList.removeChild(todoItem);
+  if (todoList.contains(todoItem)) {
+    todoList.removeChild(todoItem);
+  } else if (completedTask.contains(todoItem)) {
+    completedTask.removeChild(todoItem);
+  }
 }
