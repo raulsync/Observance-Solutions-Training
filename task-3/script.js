@@ -14,6 +14,7 @@ let timer;
 
 startBtn.addEventListener('click', () => {
   console.log('click Event trigger', startBtn);
+  clearInterval(timer);
   timer = setInterval(showTimer, 10);
 });
 
@@ -22,7 +23,7 @@ function showTimer() {
   if (ten <= 9) {
     tens.textContent = '0' + ten;
   } else if (ten <= 99) {
-    tens.innerHTML = ten;
+    tens.textContent = ten;
   }
   if (ten > 99) {
     sec++;
@@ -37,10 +38,13 @@ function showTimer() {
 }
 
 stopBtn.addEventListener('click', () => {
+  console.log('stop button clicked');
   clearInterval(timer);
 });
 
 resetBtn.addEventListener('click', () => {
+  console.log('reset button clicked');
+  clearInterval(timer);
   ten = '00';
   sec = '00';
   min = '00';

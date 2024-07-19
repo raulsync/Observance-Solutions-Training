@@ -15,7 +15,7 @@ body {
 .container {
   width: 50%;
   background-color: #f5e4e4;
-  height: 50vh;
+  height: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
