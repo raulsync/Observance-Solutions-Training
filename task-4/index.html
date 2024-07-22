@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Shopping Cart</title>
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <script
+      src="script.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+
+      <nav class="navBar">
+        <ul>
+          <li><a href="/">Logo</a></li>
+
+            <li><a href="#" class="cart-link">Cart</a></li>
+
+        </ul>
+      </nav>
+      <div class="product-container">
+        <table class="product-table">
+          <h1 class="product-listing">Product-Listing</h1>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+          </tr>
+          </thead>
+          <tbody class="product-table-content">
+
+          </tbody>
+        </table>
+        </div>
+
+              <!-- Modal -->
+      <div id="cart-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">X</span>
+          <!-- Cart items -->
+           <h2>Cart Items</h2>
+            <ul class="cart-data"></ul>
+            <div class="total-value">Total Amount $<span class="total-amount">0</span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
