@@ -32,8 +32,8 @@ const getData = async () => {
       if (event.target.classList.contains('add-to-cart-btn')) {
         console.log(event.target.dataset);
         const productId = event.target.dataset.id;
-        const productImage = event.target.dataset.image;
         const productTitle = event.target.dataset.title;
+        const productImage = event.target.dataset.image;
         const productPrice = parseFloat(event.target.dataset.price);
         if (cart[productId]) {
           cart[productId].quantity += 1;
@@ -81,20 +81,14 @@ window.addEventListener('click', (event) => {
   }
 });
 
-const updateCartList = () => {
-  cartData.innerHTML = '';
-  let totalPrice = 0;
-  for (const id in cart) {
-    if (cart.hasOwnProperty(id)) {
-      const product = cart[id];
-      const total = (product.price * product.quantity).toFixed(2);
-      totalPrice += parseFloat(total);
+const createCart = (product, id) => {
+  const totalPrice = (product.price * product.quantity).toFixed(2);
+  const listProduct = document.createElement('li');
 
-      const listProduct = document.createElement('li');
-      listProduct.innerHTML = `
-           <img src="${product.image}" alt="${
-        product.title
-      }" class="cart-product-image">
+  listProduct.innerHTML = `
+      <img src="${product.image}" alt="${
+    product.title
+  }" class="cart-product-image">
             <div class="cart-product-details">
               <div class="cart-product-title">${product.title}</div>
               <div class="cart-product-price">$${product.price.toFixed(2)}</div>
@@ -103,13 +97,62 @@ const updateCartList = () => {
                 ${product.quantity}
                 <button class="increase-qty" data-id="${id}">+</button>
               </div>
-              <div class="cart-product-total">Total: $${total}</div>
+              <div class="cart-product-total">Total: $${totalPrice}</div>
               <button class="remove-item" data-id="${id}">Remove</button>
             </div>
-            `;
-      cartData.appendChild(listProduct);
-    }
-  }
-  console.log(cartData);
-  totalAmount.textContent = totalPrice.toFixed(2);
+  `;
+  return listProduct;
+};
+
+const updateTotalAmount = () => {
+  let totalAmount = 0;
+
+  Object.values(cart).forEach((product) => {
+    totalAmount += product.price * product.quantity;
+  });
+
+  totalAmount.textContent = totalAmount.toFixed(2);
+};
+
+const handleButtons = () => {
+  cartData.querySelectorAll('.increase-qty').forEach((button) => {
+    button.addEventListener('click', () => {
+      const productId = button.dataset.id;
+      cart[productId].quantity += 1;
+      updateCartList();
+    });
+  });
+
+  cartData.querySelectorAll('.decrease-qty').forEach((button) => {
+    button.addEventListener('click', () => {
+      const productId = button.dataset.id;
+      if (cart[productId].quantity > 1) {
+        cart[productId].quantity -= 1;
+      } else {
+        delete cart[productId];
+      }
+      updateCartList();
+    });
+  });
+
+  cartData.querySelectorAll('.remove-item').forEach((button) => {
+    button.addEventListener('click', () => {
+      const productId = button.dataset.id;
+      delete cart[productId];
+      updateCartList();
+    });
+  });
+};
+
+const updateCartList = () => {
+  cartData.innerHTML = '';
+
+  Object.keys(cart).forEach((id) => {
+    const product = cart[id];
+    const listItem = createCart(product, id);
+    cartData.appendChild(listItem);
+  });
+
+  updateTotalAmount();
+  handleButtons();
 };
