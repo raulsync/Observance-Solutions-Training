@@ -5,9 +5,8 @@ function App() {
   return (
     <>
       <div className="expense-tracker">
-        <h1>Expense Tracker</h1>
+        <ExpenseForm />
       </div>
-      <ExpenseForm />
     </>
   );
 }
