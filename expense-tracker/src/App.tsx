@@ -81,7 +81,7 @@ function App() {
 
   return (
     <>
-      <div className="entry-container border mt-3 mx-1 rounded-md bg-blue-100">
+      <div className=" entry-container border mt-3 mx-1 rounded-md bg-blue-100">
         <IncomeForm addIncome={addIncome} />
         <hr className="h-px my-8 bg-gray-400 border-0 " />
         <ExpenseForm

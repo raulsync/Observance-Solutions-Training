@@ -44,7 +44,7 @@ const ExpenseForm: React.FC<Iprops> = ({
     e.preventDefault();
     if (expenseInput && nameInput && category && date) {
       const newExpense: IExpense = {
-        id: uuidv4(),
+        id: expense ? expense.id : uuidv4(),
         amount: expenseInput,
         name: nameInput,
         category,
@@ -107,7 +107,7 @@ const ExpenseForm: React.FC<Iprops> = ({
               value=""
               disabled
               selected
-              hidden
+              // hidden
             >
               Select category
             </option>
@@ -115,6 +115,8 @@ const ExpenseForm: React.FC<Iprops> = ({
             <option value="vegetable">Vegetable</option>
             <option value="movies">Movies</option>
             <option value="shopping">Shopping</option>
+            <option value="beverage">Beverage</option>
+            <option value="other">Other</option>
           </select>
           <input
             className="py-1 rounded-md px-4 outline-none border border-gray-300"
