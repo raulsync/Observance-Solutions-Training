@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import ExpenseForm from './components/expenseForm/ExpenseForm';
 import IncomeForm from './components/incomeForm/IncomeForm';
@@ -23,6 +23,18 @@ function App() {
   const [expenseCategory, setExpenseCategory] = useState<IExpenseCategory>({});
   const [editExpense, setEditExpense] = useState<IExpense | null>(null);
 
+  useEffect(() => {
+    const categoryTotals = expenses.reduce((acc, expense) => {
+      if (acc[expense.category]) {
+        acc[expense.category] += parseFloat(expense.amount);
+      } else {
+        acc[expense.category] = parseFloat(expense.amount);
+      }
+      return acc;
+    }, {} as IExpenseCategory);
+    setExpenseCategory(categoryTotals);
+  }, [expenses]);
+
   //Add Income --->
   const addIncome = (amount: number) => {
     setIncome((prevIncome) => prevIncome + amount);
@@ -33,19 +45,19 @@ function App() {
   const addExpense = (expense: IExpense) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
 
-    setExpenseCategory((prevExpenseCategory) => {
-      const updatedExpenseCategory = { ...prevExpenseCategory };
-      const category = expense.category;
-      const amount = parseFloat(expense.amount);
+    // setExpenseCategory((prevExpenseCategory) => {
+    //   const updatedExpenseCategory = { ...prevExpenseCategory };
+    //   const category = expense.category;
+    //   const amount = parseFloat(expense.amount);
 
-      if (updatedExpenseCategory[category]) {
-        updatedExpenseCategory[category] += amount;
-      } else {
-        updatedExpenseCategory[category] = amount;
-      }
+    //   if (updatedExpenseCategory[category]) {
+    //     updatedExpenseCategory[category] += amount;
+    //   } else {
+    //     updatedExpenseCategory[category] = amount;
+    //   }
 
-      return updatedExpenseCategory;
-    });
+    //   return updatedExpenseCategory;
+    // });
   };
 
   //Delete expenses from list
@@ -54,9 +66,9 @@ function App() {
     setExpenses(expenses.filter((exp) => exp.id !== id));
   };
 
-  console.log(expenseCategory.category);
+  console.log(expenseCategory, 'expense');
 
-  // console.log(expenses);
+  // console.log(expenses);-
   const totalExpense = expenses.reduce((acc, expense) => {
     return acc + parseFloat(expense.amount);
   }, 0);

@@ -1,5 +1,5 @@
 import { IExpenseCategory } from '../../App';
-// import ExpensePieChart from './CategoryPie';
+import CategoryPie from './CategoryPie';
 
 interface IProps {
   income: number;
@@ -12,7 +12,7 @@ const ExpenseSummary: React.FC<IProps> = ({
   income,
   totalExpense,
   balance,
-  // expenseCategory,
+  expenseCategory,
 }) => {
   return (
     <div className="w-1/3 flex flex-col gap-1 items-ceter rounded-md shadow-md h-[67vh] ml-2 mt-2">
@@ -29,10 +29,10 @@ const ExpenseSummary: React.FC<IProps> = ({
         <p className="text-white">Balance</p>
       </div>
       <div className="expense-by-category shadow-md h-[55%] mt-2 mx-1 border-2">
-        {/* <ExpensePieChart expenseCategory={expenseCategory} /> */}
         <h1 className="font-semibold mx-2 text-center ">
           Expenses by category
         </h1>
+        <CategoryPie expenseCategory={expenseCategory} />
       </div>
     </div>
   );

@@ -23,10 +23,10 @@ const ExpenseList: React.FC<IExpenseListProps> = ({
   return (
     <div className="w-2/3 mt-2 h-[67vh] overflow-y-auto shadow-md rounded-md mx-2">
       <div className="list-header bg-slate-400 flex my-2 items-center justify-between h-14  rounded  px-5 mx-1 ">
-        <div className="action font-bold">Actions</div>
-        <div className="expense-name font-bold">Name</div>
-        <div className="expense-category font-bold">Category</div>
-        <div className="expense-amount font-bold">Amount</div>
+        <div className="action font-bold text-white">Actions</div>
+        <div className="expense-name font-bold text-white">Name</div>
+        <div className="expense-category font-bold text-white">Category</div>
+        <div className="expense-amount font-bold text-white">Amount</div>
       </div>
       {expenses.map((expense) => (
         <div

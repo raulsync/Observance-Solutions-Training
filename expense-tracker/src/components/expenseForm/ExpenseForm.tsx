@@ -84,7 +84,7 @@ const ExpenseForm: React.FC<Iprops> = ({
           </button>
           <input
             className=" py-1 rounded-md px-4 outline-none border border-gray-300"
-            type="text"
+            type="number"
             placeholder="Expense"
             value={expenseInput}
             onChange={(e) => setExpenseInput(e.target.value)}
@@ -115,7 +115,6 @@ const ExpenseForm: React.FC<Iprops> = ({
             <option value="vegetable">Vegetable</option>
             <option value="movies">Movies</option>
             <option value="shopping">Shopping</option>
-            <option value="beverage">Beverage</option>
             <option value="other">Other</option>
           </select>
           <input
