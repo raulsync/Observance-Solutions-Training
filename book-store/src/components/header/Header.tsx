@@ -1,15 +1,35 @@
+import { MdDarkMode } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+import SearchInput from '../SearchInput/SearchInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDarkMode } from '../../slices/themeSlice';
+
 const Header = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((state) => state.darkMode.value);
+
   return (
-    <div className="nav-bar">
-      <nav>
-        <div className="logo  w-48 h-12">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Open_Library_logo.svg/768px-Open_Library_logo.svg.png"
-            alt="store-logo"
-            className="logo w-48 h-12"
-          />
-        </div>
-      </nav>
+    <div
+      className={`flex h-18 justify-between gap-2 items-center w-full bg-cyan-100 ${
+        isDarkMode && 'bg-violet-950'
+      }  py-4 `}
+    >
+      <div className="logo h-14 w-40 flex items-center">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Open_Library_logo.svg/768px-Open_Library_logo.svg.png"
+          alt="store_logo"
+          className="ml-2 h-full w-full cursor-pointer"
+          onClick={() => navigate('/')}
+        />
+      </div>
+      <SearchInput />
+      <div className="theme-toggler">
+        <MdDarkMode
+          className="text-4xl -ml-14 cursor-pointer"
+          onClick={() => dispatch(toggleDarkMode())}
+        />
+      </div>
     </div>
   );
 };

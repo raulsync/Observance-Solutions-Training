@@ -1,0 +1,21 @@
+.left-animation {
+  animation: bounce-out-down 2s ease infinite;
+}
+
+@keyframes bounce-out-down {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+}
+
+.hover-animation:hover {
+  animation: bounce-out-down 2s ease infinite;
+}
