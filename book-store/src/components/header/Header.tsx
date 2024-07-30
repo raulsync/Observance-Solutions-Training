@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import SearchInput from '../SearchInput/SearchInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleDarkMode } from '../../slices/themeSlice';
+import { RootState } from '../../store/store';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isDarkMode = useSelector((state) => state.darkMode.value);
+  const isDarkMode = useSelector((state: RootState) => state.darkMode.value);
 
   return (
     <div

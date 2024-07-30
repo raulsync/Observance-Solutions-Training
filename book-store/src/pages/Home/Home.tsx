@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import './style.css';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 const Home = () => {
   const [animationClass, setAnimationClass] = useState('left-animation');
-  const isDarkMode = useSelector((state) => state.darkMode.value);
+  const isDarkMode = useSelector((state: RootState) => state.darkMode.value);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,13 +34,17 @@ const Home = () => {
         />
       </div>
       <div className="right flex items-center  w-1/2 h-[70vh] mt-8 ml-2 ">
-        <div className="flex flex-col items-center justify-center w-full h-1/3 gap-4 bg-cyan-500 rounded-s-md">
+        <div
+          className={`flex ${
+            isDarkMode && 'bg-violet-950'
+          } flex-col items-center justify-center w-full h-1/3 gap-4 bg-cyan-500 rounded-s-md`}
+        >
           <h1 className="font-bold text-3xl text-white">
             Remain Curious Always
           </h1>
           <button
             className={` ${
-              isDarkMode && 'bg-teal-950'
+              isDarkMode && 'bg-violet-600'
             } bg-blue-600  w-1/3 px-4 py-2 rounded-md text-white`}
           >
             Read free for 30 days
