@@ -35,7 +35,7 @@ const BookDetails = () => {
     ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`
     : 'https://via.placeholder.com/150';
   return (
-    <div className="book-details-container relative w-[50%] h-[100vh] mx-auto p-4 bg-slate-300 flex flex-col items-center">
+    <div className="book-details-container relative w-[50%] h-full mx-auto p-4 bg-slate-300 flex flex-col items-center">
       <span className="back-navigate absolute left-1 top-3 ">
         <button onClick={() => navigate('/book')}>
           <TfiControlBackward className=" bg-blue-400 rounded-md text-white shadow-md text-3xl" />
@@ -54,7 +54,7 @@ const BookDetails = () => {
             <span className="text-2xl font-semibold text-gray-700">Title:</span>
             <span className="text-2xl font-bold  mx-4">{book.title}</span>
             <h1 className="text-2xl font-semibold ">Description:</h1>
-            <p className="">
+            <p className="description">
               {book?.description || 'No description available.'}
             </p>
           </div>
