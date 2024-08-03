@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div
-      className={`w-full  flex items-center h-[86vh] ${
+      className={`w-full  flex items-center h-[87.25vh] ${
         isDarkMode && 'bg-violet-900'
       }`}
     >

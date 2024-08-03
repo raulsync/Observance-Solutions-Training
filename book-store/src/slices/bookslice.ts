@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface IBook {
+export interface IBook {
   key: string;
   title: string;
   author_name?: string[];

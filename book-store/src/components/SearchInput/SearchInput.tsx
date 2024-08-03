@@ -1,25 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { fetchSearchBooks } from '../../api/searchApi';
 import { useNavigate } from 'react-router-dom';
+import { setBooks } from '../../slices/bookslice';
 
 const SearchInput = () => {
   const [query, setQuery] = useState<string>('');
-  const [books, setBooks] = useState([]);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const isDarkMode = useSelector((state: RootState) => state.darkMode.value);
-  console.log(books);
+  // console.log(books);
+  // console.log(books);
+
+  useEffect(() => {
+    if (query.trim() === '') {
+      navigate('/');
+    }
+  }, [query, navigate]);
 
   const handleSearchBooks = async () => {
-    if (query.trim() === '') return;
     try {
       const data = await fetchSearchBooks(query);
       console.log(data?.docs);
-      dispatch(setBooks(data.docs || []););
-      navigate('/books')
+      dispatch(setBooks(data?.docs || []));
+      navigate('/book');
     } catch (error) {
       console.error('Failed to fetch search results:', error);
     }
