@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const URL = 'https://openlibrary.org/search.json';
 
@@ -14,7 +14,7 @@ export const fetchSearchBooks = async (query: string) => {
     // const jsonData = await response.json();
     // return jsonData;
     return response.data;
-  } catch (error) {
-    console.log('api error occured', error.message);
+  } catch (error: unknown) {
+    console.log('api error occured', error);
   }
 };

@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 
 const Home = () => {
-  const [animationClass, setAnimationClass] = useState('left-animation');
+  const [animationClass, setAnimationClass] =
+    useState<string>('left-animation');
   const isDarkMode = useSelector((state: RootState) => state.darkMode.value);
 
   useEffect(() => {
