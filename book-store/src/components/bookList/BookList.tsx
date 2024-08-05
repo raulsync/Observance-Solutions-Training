@@ -9,7 +9,7 @@ const BookList: React.FC<IProps> = ({ books }) => {
   console.log(books, 'BookList Page');
 
   return (
-    <div className=" my-3 flex flex-col gap-3 items-center m-auto justify-center w-full bg-cyan-100 ">
+    <div className=" mt-20 flex flex-col gap-3 items-center m-auto justify-center w-[50%] bg-zinc-300 ">
       {books
         ?.filter((book) => book.cover_i)
         ?.map((book) => (

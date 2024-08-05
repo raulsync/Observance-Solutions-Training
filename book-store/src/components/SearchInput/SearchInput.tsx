@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
@@ -14,13 +14,10 @@ const SearchInput = () => {
   // console.log(books);
   // console.log(books);
 
-  useEffect(() => {
+  const handleSearchBooks = async () => {
     if (query.trim() === '') {
       navigate('/');
     }
-  }, [query, navigate]);
-
-  const handleSearchBooks = async () => {
     try {
       const data = await fetchSearchBooks(query);
       console.log(data?.docs);
