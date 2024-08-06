@@ -12,6 +12,12 @@ const themeSlice = createSlice({
   reducers: {
     toggleDarkMode(state: IThemeState) {
       state.value = !state.value;
+
+      if (state.value) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     },
   },
 });

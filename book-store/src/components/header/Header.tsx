@@ -12,8 +12,8 @@ const Header = () => {
 
   return (
     <div
-      className={`flex h-18 justify-between fixed z-[1000] shadow-md gap-2 items-center w-full  bg-cyan-100 ${
-        isDarkMode && 'bg-violet-950'
+      className={`flex h-18 justify-between fixed z-[1000] shadow-md gap-2 items-center w-full  bg-background ${
+        isDarkMode && 'dark'
       }  py-4 `}
     >
       <div className="logo h-14 w-40 flex items-center">

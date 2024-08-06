@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #ecfeff;
+/* body {
+  background-color: #ffffff;
+} */
+/* index.css */
+:root {
+  --color-primary: #6eacda;
+  --color-background: #cbd5e1;
+  --color-text: ##475569;
+  --color-btn: #cbd5e1;
+  --color-card: #E2E8F0;
+  --color-cardtext:#000000;
+  --color-input: #ffffff;
+  --color-btn2: #818CF8;
+  --color-description:#E2E8F0;
+}
+
+.dark {
+  --color-primary: #1a202c;
+  --color-background: #1e293b;
+  --color-text: #ffffff;
+  --color-cardText:#fff
+  --color-btn: #475569;
+  --color-card:#94A3B8 ;
+  --color-btn2:#64748B;
+  --color-description:#64748B
+
 }

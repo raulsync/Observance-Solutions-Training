@@ -29,15 +29,11 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="searchbox  w-1/3 flex items-center">
+    <div className="searchbox w-1/3 flex items-center">
       <input
         type="text"
         placeholder="Search your favourite book"
-        className={`py-3 w-full px-3 rounded-md outline-none border ${
-          isDarkMode
-            ? ' bg-violet-800 text-white border-gray-600'
-            : 'bg-white text-black border-gray-500'
-        }`}
+        className={`py-3 w-full px-3 rounded-md outline-none border bg-input text-blcak`}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => {
