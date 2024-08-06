@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+import { useDispatch } from 'react-redux';
 import { fetchSearchBooks } from '../../api/searchApi';
 import { useNavigate } from 'react-router-dom';
 import { setBooks } from '../../slices/bookslice';
@@ -10,7 +9,6 @@ const SearchInput = () => {
   const [query, setQuery] = useState<string>('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isDarkMode = useSelector((state: RootState) => state.darkMode.value);
   // console.log(books);
   // console.log(books);
 
