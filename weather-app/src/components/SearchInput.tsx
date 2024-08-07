@@ -10,7 +10,6 @@ const Input = styled.input`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   background: rgba(255, 255, 255, 0.6);
   opacity: 0.5;
-  backdrop-filter: blur(10px);
 `;
 
 interface SearchInputProps {

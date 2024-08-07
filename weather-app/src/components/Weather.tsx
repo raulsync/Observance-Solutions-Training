@@ -32,7 +32,6 @@ const WeatherContainer = styled.div`
   justify-content: center;
   background-size: cover;
   background-position: center;
-  backdrop-filter: blur(10px);
   ${(props) =>
     props.background && `background-image: url(${props.background});`}
 `;
@@ -41,6 +40,8 @@ const Weather: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [backgroundImage, setBackgroundImage] = useState('');
   const [city, setCity] = useState('');
+
+  console.log(weatherData);
 
   const fetchWeather = async (query: string) => {
     try {
@@ -54,6 +55,7 @@ const Weather: React.FC = () => {
         },
       );
       setWeatherData(response.data);
+      console.log(response.data.current.condition);
       updateBackground(response.data.current.condition.text);
     } catch (error) {
       console.error('Error fetching weather data', error);
