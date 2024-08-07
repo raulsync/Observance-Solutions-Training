@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       href="style.css"
@@ -23,13 +24,13 @@
         <ul>
           <li><a href="/">Logo</a></li>
 
-            <li><a href="#" class="cart-link">Cart</a></li>
+            <li><a href="#" class="cart-link"> <i class="fa fa-shopping-cart"></i></a><span class="cart-badge">0</span></li>
 
         </ul>
       </nav>
       <div class="product-container">
+        <h1 class="product-listing">Product-Listing</h1>
         <table class="product-table">
-          <h1 class="product-listing">Product-Listing</h1>
           <thead>
             <tr>
               <th>Image</th>
@@ -53,6 +54,7 @@
            <h2>Cart Items</h2>
             <ul class="cart-data"></ul>
             <div class="total-value">Total Amount $<span class="total-amount">0</span></div>
+            <div class="clear-cart"><button class="clear-cart-btn">clear</button></div>
         </div>
       </div>
     </div>
