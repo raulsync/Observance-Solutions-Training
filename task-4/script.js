@@ -8,7 +8,7 @@ const getData = async () => {
   try {
     const res = await fetch(url);
     const products = await res.json();
-
+    console.log(products);
     products.map((product) => {
       const row = document.createElement('tr');
       row.innerHTML = `
@@ -17,7 +17,7 @@ const getData = async () => {
         <td>$${product.price}</td>
         <td>
         <button class="add-to-cart-btn"
-           data-id="${product.id}
+           data-id="${product.id}"
            data-title="${product.title}"
             data-image="${product.image}"
             data-price="${product.price}">Add to Cart
@@ -28,32 +28,35 @@ const getData = async () => {
     });
 
     // Add event listener for Add to Cart buttons
-    tableBody.addEventListener('click', (event) => {
-      if (event.target.classList.contains('add-to-cart-btn')) {
-        console.log(event.target.dataset);
-        const productId = event.target.dataset.id;
-        const productTitle = event.target.dataset.title;
-        const productImage = event.target.dataset.image;
-        const productPrice = parseFloat(event.target.dataset.price);
-        if (cart[productId]) {
-          cart[productId].quantity += 1;
-        } else {
-          cart[productId] = {
-            title: productTitle,
-            price: productPrice,
-            image: productImage,
-            quantity: 1,
-          };
-        }
-
-        updateCartList();
-      }
-    });
+    tableBody.addEventListener('click', handleAddToCart);
   } catch (error) {
     console.log(error);
   }
 };
 getData();
+
+const handleAddToCart = (event) => {
+  if (event.target.classList.contains('add-to-cart-btn')) {
+    console.log(event.target.dataset);
+    const productId = event.target.dataset.id;
+    const productTitle = event.target.dataset.title;
+    const productImage = event.target.dataset.image;
+    const productPrice = parseFloat(event.target.dataset.price);
+    console.log(productPrice);
+    console.log(productTitle);
+    addToCart(productId, productTitle, productPrice, productImage);
+    updateCartList();
+    cartBadgeUpdate();
+  }
+};
+
+const addToCart = (id, title, price, image) => {
+  if (cart[id]) {
+    cart[id].quantity += 1;
+  } else {
+    cart[id] = { title, price, image, quantity: 1 };
+  }
+};
 
 const modal = document.querySelector('.modal');
 const cartLink = document.querySelector('.cart-link');
@@ -85,8 +88,7 @@ const createCart = (product, id) => {
   const totalPrice = (product.price * product.quantity).toFixed(2);
   const listProduct = document.createElement('li');
 
-  listProduct.innerHTML = `
-      <img src="${product.image}" alt="${
+  listProduct.innerHTML = ` <img src="${product.image}" alt="${
     product.title
   }" class="cart-product-image">
             <div class="cart-product-details">
@@ -98,28 +100,59 @@ const createCart = (product, id) => {
                 <button class="increase-qty" data-id="${id}">+</button>
               </div>
               <div class="cart-product-total">Total: $${totalPrice}</div>
-              <button class="remove-item" data-id="${id}">Remove</button>
+              <button class="remove-item" data-id="${id}">X</button>
             </div>
   `;
   return listProduct;
 };
 
 const updateTotalAmount = () => {
-  let totalAmount = 0;
+  let totalPrice = 0;
 
+  //to get the amount of all product in table
   Object.values(cart).forEach((product) => {
-    totalAmount += product.price * product.quantity;
+    totalPrice += product.price * product.quantity;
   });
 
-  totalAmount.textContent = totalAmount.toFixed(2);
+  totalAmount.textContent = totalPrice.toFixed(2);
 };
 
-const handleButtons = () => {
+// *Cart Badge
+
+const cartBadge = document.querySelector('.cart-badge');
+
+const cartBadgeUpdate = () => {
+  let totalQuantity = 0;
+  Object.values(cart).forEach((product) => {
+    totalQuantity += product.quantity;
+  });
+  cartBadge.textContent = totalQuantity;
+};
+
+const clearCart = document.querySelector('.clear-cart-btn');
+
+clearCart.addEventListener('click', () => {
+  // cart={};
+
+  for (const id in cart) {
+    if (cart.hasOwnProperty(id)) {
+      delete cart[id];
+    }
+  }
+  updateCartList();
+  console.log(cart);
+  clearCart.style.display = 'none';
+});
+
+//Cart Action increase quantity decrease quantity remove item from cart
+
+const handleCartAction = () => {
   cartData.querySelectorAll('.increase-qty').forEach((button) => {
     button.addEventListener('click', () => {
       const productId = button.dataset.id;
       cart[productId].quantity += 1;
       updateCartList();
+      cartBadgeUpdate();
     });
   });
 
@@ -131,7 +164,9 @@ const handleButtons = () => {
       } else {
         delete cart[productId];
       }
+
       updateCartList();
+      cartBadgeUpdate();
     });
   });
 
@@ -140,6 +175,7 @@ const handleButtons = () => {
       const productId = button.dataset.id;
       delete cart[productId];
       updateCartList();
+      cartBadgeUpdate();
     });
   });
 };
@@ -154,5 +190,5 @@ const updateCartList = () => {
   });
 
   updateTotalAmount();
-  handleButtons();
+  handleCartAction();
 };
