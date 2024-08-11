@@ -10,15 +10,15 @@ const BookListPage = () => {
 
   const books = useSelector((state: RootState) => state.books.books);
   return (
-    <div className="w-full m-auto bg-background relative h-screen flex items-center flex-col ">
-      <div className="bg-background">
-        <span className="back-navigate left-64 top-28 z-50 fixed ">
+    <div className="w-full m-auto bg-background relative h-[100%] flex items-center flex-col px-4 sm:px-6 md:px-8">
+      <div className="bg-background w-full max-w-3xl mx-auto">
+        <span className="back-navigate left-2 top-32 z-50 fixed">
           <button onClick={() => navigate('/')}>
-            <TfiControlBackward className=" bg-btn rounded-md text-text shadow-md font-bold text-3xl" />
+            <TfiControlBackward className="bg-btn rounded-md text-text shadow-md font-bold text-xl sm:text-2xl md:text-3xl" />
           </button>
         </span>
       </div>
-      <div className="flex flex-col bg-background mt-6 items-center w-full">
+      <div className="flex flex-col bg-background mt-16 items-center  w-full max-w-3xl mx-auto">
         <BookList books={books} />
       </div>
     </div>

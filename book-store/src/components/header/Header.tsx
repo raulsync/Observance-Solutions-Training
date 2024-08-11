@@ -12,22 +12,22 @@ const Header = () => {
 
   return (
     <div
-      className={`flex h-18 justify-between fixed z-[1000] shadow-md gap-2 items-center w-full  bg-background ${
+      className={`flex h-18 justify-between fixed z-[1000] shadow-md gap-2 items-center w-full bg-background ${
         isDarkMode && 'dark'
-      }  py-4 `}
+      } py-3 px-4 sm:py-4 sm:px-6 lg:px-8`}
     >
-      <div className="logo h-14 w-40 flex items-center">
+      <div className="logo h-12 w-28 sm:w-40 flex items-center">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Open_Library_logo.svg/768px-Open_Library_logo.svg.png"
           alt="store_logo"
-          className="ml-2 h-full w-full cursor-pointer"
+          className="h-full w-full cursor-pointer"
           onClick={() => navigate('/')}
         />
       </div>
       <SearchInput />
       <div className="theme-toggler">
         <MdDarkMode
-          className="text-4xl -ml-14 cursor-pointer"
+          className="text-3xl sm:text-4xl cursor-pointer"
           onClick={() => dispatch(toggleDarkMode())}
         />
       </div>
