@@ -13,7 +13,7 @@ function MainContainer() {
     { day: '6', sales: 6 },
     { day: '7', sales: 2 },
     { day: '8', sales: 2 },
-    { day: '9', sales: 8 },
+    { day: '9', sales: 12 },
     { day: '10', sales: 9 },
   ];
 

@@ -25,7 +25,7 @@ function BubbleChart({ mockData }) {
         data: mockData.map((da) => ({
           x: da.day,
           y: da.sales,
-          r: da.sales / 10,
+          r: 5,
         })),
         backgroundColor: [
           'rgba(255, 99, 132)',
