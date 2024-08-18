@@ -47,7 +47,7 @@ function PieChart({ mockData }) {
   };
 
   return (
-    <div className="w-full h-full  items-center justify-center flex">
+    <div className="w-full h-full  items-center justify-center flex bg-white shadow-lg">
       <Pie data={data} />
     </div>
   );

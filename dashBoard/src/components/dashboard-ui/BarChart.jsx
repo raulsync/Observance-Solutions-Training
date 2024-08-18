@@ -37,7 +37,7 @@ function BarChart({ mockData }) {
     ],
   };
   return (
-    <div className="h-full w-full flex justify-center items-center">
+    <div className="h-full w-full flex justify-center items-center bg-white shadow-lg">
       <Bar data={data} />
     </div>
   );

@@ -18,7 +18,7 @@ function MainContainer() {
   ];
 
   return (
-    <div className="w-full h-[100vh] overflow-hidden">
+    <div className="w-full h-[100vh] items-center justify-center">
       <div className="upper flex gap-3 h-1/2 w-full">
         <div className="w-1/2 h-[48vh]">
           <PieChart mockData={mockData} />
