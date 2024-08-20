@@ -38,8 +38,8 @@ function BubbleChart({ mockData }) {
       title: 'Sales',
     },
     showlegend: false,
-    height: '100%',
-    width: '100%',
+    height: 330,
+    width: 700,
     plot_bgcolor: 'white',
     paper_bgcolor: 'white',
   };

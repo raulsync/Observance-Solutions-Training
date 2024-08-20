@@ -29,8 +29,8 @@ function PieChart({ mockData }) {
   const layout = {
     title: 'Pie Chart',
 
-    height: '100%',
-    width: '100%',
+    height: 350,
+    width: 400,
   };
 
   return (

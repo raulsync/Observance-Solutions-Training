@@ -26,7 +26,7 @@ function LineChart({ mockData }) {
     datasets: [
       {
         label: 'Line-Chart',
-        // fill: false,
+        // fill: false,N
         // lineTension: 0.5,
         backgroundColor: 'rgba(75,192,192,1)',
         borderColor: 'rgba(0,0,0,1)',

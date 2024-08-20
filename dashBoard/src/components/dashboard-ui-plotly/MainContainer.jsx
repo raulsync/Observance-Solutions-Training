@@ -18,20 +18,20 @@ function MainContainer() {
   ];
 
   return (
-    <div className="w-full h-[100vh] items-center justify-center">
-      <div className="upper flex gap-3 h-1/2 w-full">
-        <div className="w-1/2 h-[48vh]">
+    <div className="w-full h-[100vh] items-center justify-center overflow-hidden">
+      <div className="upper flex gap-3 h-[50vh] w-full">
+        <div className="w-1/2 h-full">
           <PieChart mockData={mockData} />
         </div>
-        <div className="w-1/2 h-[48vh]">
+        <div className="w-1/2 h-full">
           <BubbleChart mockData={mockData} />
         </div>
       </div>
       <div className="lower flex gap-3 h-1/2 w-full bg-white">
-        <div className="w-1/2 h-[48vh]">
+        <div className="w-1/2 h-full">
           <LineChart mockData={mockData} />
         </div>
-        <div className="w-1/2 h-[48vh]">
+        <div className="w-1/2 h-full">
           <BarChart mockData={mockData} />
         </div>
       </div>
