@@ -1,4 +1,4 @@
-import MainContainer from './components/dashboard-ui/MainContainer';
+import MainContainer from './components/dashboard-ui-plotly/MainContainer';
 import Login from './components/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
