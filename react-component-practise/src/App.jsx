@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { AutoComplete } from 'primereact/autocomplete';
 import { Calendar } from 'primereact/calendar';
+import { Editor } from 'primereact/editor';
 
 function App() {
   const [value, setValue] = useState('');
   const [items, setItems] = useState([]);
 
   const [date, setDate] = useState(null);
+
+  const [text, setText] = useState('');
 
   const search = (event) => {
     setItems([...Array(10).keys()].map((item) => event.query + '-' + item));
@@ -28,6 +31,13 @@ function App() {
         onChange={(e) => setDate(e.value)}
         className="border border-gray-400"
         placeholder="datepicker"
+        dateFormat="dd/mm/yy"
+      />
+
+      <Editor
+        value={text}
+        onTextChange={(e) => setText(e.htmlValue)}
+        style={{ height: '320px' }}
       />
     </div>
   );
